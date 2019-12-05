@@ -10,10 +10,10 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         #print(options['file_url'])
         conn= sqlite3.connect("db.sqlite3")
-        df = pd.read_csv(options['file_url'][0],index_col=0)
-        df.to_sql('file_url', conn, if_exists='append', index=False)
-
+        df = pd.read_csv(options['file_url'][0])
+        df.to_sql(options['file_url'][0].replace('.csv',''), conn, if_exists='append', index=False)
+        
         #df = pd.DataFrame([(0,1),(2,3)],columns=['col1','col2'])
-        print('ok')    
+        print('\nSuccess!\n')    
 
     
