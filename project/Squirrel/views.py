@@ -32,3 +32,7 @@ def add(request):
 
     return render(request, 'Squirrel/add.html', context)
 
+
+def get_map(request):
+    sightings = random.sample(list(Squirrel.objects.all()), 100)
+    return render(request, 'Squirrel/map.html', {'sightings':sightings})
