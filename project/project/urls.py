@@ -18,5 +18,4 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('adopt/', include('adopt.urls')), # Here we include the file 'urls' in the app adopt.
 ]
