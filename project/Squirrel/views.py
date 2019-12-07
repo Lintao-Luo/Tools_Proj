@@ -4,6 +4,7 @@ from django.template import loader
 from django.db.models import Count, Q
 from .forms import SquirrelForm
 from .models import Squirrel
+import random
 
 def index(request):
     return render(request, 'Squirrel/index.html')
@@ -36,3 +37,20 @@ def add(request):
 def get_map(request):
     sightings = random.sample(list(Squirrel.objects.all()), 100)
     return render(request, 'Squirrel/map.html', {'sightings':sightings})
+
+def update(request, squirrel_id):
+    squirrel = Squirrel.objects.get(squirrel_id=squirrel_id)
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST, instance=squirrel)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/Squirrel/sightings/')
+
+    else:
+        form = SquirrelForm(instance=squirrel)
+
+    context = {
+            'form': form,
+    }
+
+    return render(request, 'Squirrel/add.html', context)
