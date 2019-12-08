@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Some General Stats</title>
+      <style>
+        html, body{
+          height: 100%;
+        }
+        h1 {text-align:center;}
+      </style>
+  </head>
+  <body>
+    <h1><b>Here we show five of the general stats about the sightings.</b></h1>
+    <p>Adult rate of the squirrels: {{s1}}</p>
+    <p>Ground plane rate of the squirrels: {{s2}}</p>
+    <p>Running rate of the squirrels: {{s3}}</p>
+    <p>Chasing rate of the squirrels: {{s4}}</p>
+    <p>Eating rate of the squirrels: {{s5}}</p>
+    <br>
+    <a href="{% url 'sightings' %}">Return to the sightings page.</a>
+  </body>
+</html>
+
